@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './components/Home';
+import Number from './components/Number';
+import Word from './components/Word';
+import WordAndColors from './components/WordAndColors';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>CORE Assignment #13: React Routing Practice</h2>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/home" element={ <Home /> } />
+          <Route path="/:number" element={ <Number /> } />
+          <Route path="/:word" element={ <Word /> } />
+          <Route path="/:word/:textColor/:bgColor" element={ <WordAndColors /> } />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
